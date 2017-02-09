@@ -36,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
             R.mipmap.hello,
             R.mipmap.hello,
             R.mipmap.hello,
+            R.mipmap.hello,
+            R.mipmap.hello,
+            R.mipmap.hello,
+            R.mipmap.hello,
+            R.mipmap.hello,
+            R.mipmap.hello,
+            R.mipmap.hello,
+            R.mipmap.hello,
             R.mipmap.hello
     };
 
@@ -46,8 +54,16 @@ public class MainActivity extends AppCompatActivity {
             "爱心",
             "鼠标",
             "键盘",
-            "显示器",
+            "显示器显示器显示器显示器显示器显示器显示器显示器显示器显示器显示器显示器显示器显示器显示器显示器显示器显示器",
             "鲜花",
+            "玫瑰",
+            "音乐CD",
+            "笔记本",
+            "自行车",
+            "轮船",
+            "轿车",
+            "大巴",
+            "飞机",
             "玫瑰",
             "音乐CD",
             "笔记本",
@@ -74,7 +90,15 @@ public class MainActivity extends AppCompatActivity {
             "鼠标: 反应敏捷",
             "音乐CD: 酷我音乐",
             "鲜花: 我爱玫瑰",
-            "自行车: 我爱玫瑰"
+            "自行车: 我爱玫瑰",
+            "玫瑰",
+            "音乐CD",
+            "笔记本",
+            "自行车",
+            "轮船",
+            "轿车",
+            "大巴",
+            "飞机"
     };
 
     @Override
