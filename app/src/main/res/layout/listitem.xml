@@ -2,20 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
 
     <ImageView
         android:layout_weight="1"
         android:id="@+id/imageItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5px"/>
+        android:layout_margin="5dp"/>
 
     <LinearLayout
         android:layout_weight="10000"
         android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
 
         <TextView
             android:id="@+id/itemTitle"
@@ -44,12 +46,12 @@
             android:id="@+id/checkItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5px"/>
+            android:layout_margin="5dp"/>
 
         <Button
             android:id="@+id/detailButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5px"/>
+            android:layout_margin="5dp"/>
     </LinearLayout>
 </LinearLayout>

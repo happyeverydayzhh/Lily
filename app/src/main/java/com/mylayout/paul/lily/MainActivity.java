@@ -1,10 +1,14 @@
 package com.mylayout.paul.lily;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -17,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "Lily";
     private ListView lv;
+    private Button buttonDetail;
 
     private ListViewAdapter listViewAdapter;
     private List<Map<String, Object>> listItems;
@@ -110,6 +115,27 @@ public class MainActivity extends AppCompatActivity {
         lv = (ListView) findViewById(R.id.list);
         listViewAdapter = new ListViewAdapter(this, listItems);
         lv.setAdapter(listViewAdapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.e("~~~", "setOnItemClickListener click");
+                Map<String, Object> map = listItems.get(i);
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("mainKey", map.get("info").toString());
+                startActivity(intent);
+            }
+        });
+
+//        buttonDetail = (Button)findViewById(R.id.button);
+//        buttonDetail.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Log.e("~~~", "detailButton click");
+//                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+//                intent.putExtra("mainKey", "我是MainActivity传过来的值!");
+//                startActivity(intent);
+//            }
+//        });
     }
 
     private List<Map<String, Object>>getListItems() {
