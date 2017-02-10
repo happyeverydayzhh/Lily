@@ -1,5 +1,8 @@
 package com.mylayout.paul.lily;
 
+import android.app.AlertDialog;
+import android.app.VoiceInteractor;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ListViewAdapter.ClickCallBack{
 
     private static final String TAG = "Lily";
     private ListView lv;
@@ -110,15 +113,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.e(TAG, "onCreate ~~~");
+//        Log.e(TAG, "onCreate ~~~");
         listItems = getListItems();
         lv = (ListView) findViewById(R.id.list);
-        listViewAdapter = new ListViewAdapter(this, listItems);
+        listViewAdapter = new ListViewAdapter(this, listItems, this);
         lv.setAdapter(listViewAdapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.e("~~~", "setOnItemClickListener click");
+//                Log.e("~~~", "setOnItemClickListener click");
                 Map<String, Object> map = listItems.get(i);
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 intent.putExtra("mainKey", map.get("info").toString());
@@ -152,38 +155,70 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void click(String string) {
+        showDetailAlert(string);
+    }
+
+    /**
+     * 点击详情弹出对话框
+     */
+    private void showDetailAlert(String string) {
+//        new AlertDialog.Builder(this)
+//                .setTitle("物品详情")
+//                .setMessage("hello world! ++++++++++" + string)
+//                .setPositiveButton("确定", null)
+//                .show();
+        new CustomDialog
+                .Builder(this)
+                .setMessage("这就是自定义的对话框")
+                .setTitle("提示")
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        }
+                 })
+                 .create()
+                 .show();
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
-        Log.e(TAG, "onStart ~~~");
+//        Log.e(TAG, "onStart ~~~");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e(TAG, "onResume ~~~");
+//        Log.e(TAG, "onResume ~~~");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.e(TAG, "onPause ~~~");
+//        Log.e(TAG, "onPause ~~~");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.e(TAG, "onStop ~~~");
+//        Log.e(TAG, "onStop ~~~");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.e(TAG, "onDestroy ~~~");
+//        Log.e(TAG, "onDestroy ~~~");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.e(TAG, "onRestart ~~~");
+//        Log.e(TAG, "onRestart ~~~");
     }
 }

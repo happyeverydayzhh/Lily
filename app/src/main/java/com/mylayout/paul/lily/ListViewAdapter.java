@@ -25,6 +25,7 @@ public class ListViewAdapter extends BaseAdapter {
     private List<Map<String, Object>> listItems;
     private LayoutInflater listContainer;
     private boolean[] hasChecked;
+    private ClickCallBack callBack;
     public final class ListItemView {
         public ImageView image;
         public TextView title;
@@ -32,8 +33,9 @@ public class ListViewAdapter extends BaseAdapter {
         public CheckBox checkBox;
         public Button detail;
     }
-    public ListViewAdapter(Context context, List<Map<String, Object>> listItems) {
+    public ListViewAdapter(Context context, List<Map<String, Object>> listItems, ClickCallBack callBack) {
         this.context = context;
+        this.callBack = callBack;
         listContainer = LayoutInflater.from(context);
         this.listItems = listItems;
         hasChecked = new boolean[getCount()];
@@ -75,7 +77,8 @@ public class ListViewAdapter extends BaseAdapter {
         listItemView.detail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDetailAlert(selectedId);
+//                showDetailAlert(selectedId);
+                callBack.click(listItems.get(selectedId).get("info").toString());
             }
         });
 
@@ -101,7 +104,6 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     /**
-     *
      * @param checkedId
      */
     private boolean hasChecked(int checkedId) {
@@ -111,4 +113,19 @@ public class ListViewAdapter extends BaseAdapter {
     private void checkedChange(int checkedId) {
         hasChecked[checkedId] = !hasChecked[checkedId];
     }
+
+    /**
+     * 自定义接口，用于回调listview的按钮点击事件
+     */
+    public interface ClickCallBack {
+        void click(String string);
+    }
+
+//    /**
+//     * 相应点击事件，调用自定义接口，并传入View
+//     */
+//    @Override
+//    public void onClick(View view) {
+//        callBack.click(view);
+//    }
 }

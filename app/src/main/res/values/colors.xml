@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="dialogTitle">#145895</color>
+    <color name="white">#fff</color>
+    <color name="c858585">#858585</color>
+    <color name="ce7e7e7">#e7e7e7</color>
+    <color name="Cfd8a39">#fd8a39</color>
+    <color name="C79351b">#79351b</color>
+    <color name="Ccecece">#cecece</color>
+    <color name="C666666">#666666</color>
 </resources>
