@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -103,27 +104,32 @@ public class CustomDialog extends Dialog {
             View layout = inflater.inflate(R.layout.custom_dialog, null);
             dialog.addContentView(layout, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT
             , LinearLayout.LayoutParams.WRAP_CONTENT));
+            Button positiveButton = (Button)layout.findViewById(R.id.positiveButton);
+            Button negativeButton = (Button)layout.findViewById(R.id.negativeButton);
             ((TextView)layout.findViewById(R.id.title)).setText(title);
             //set the positiveButton
             if (positiveButtonText != null) {
-                ((Button)layout.findViewById(R.id.positiveButton)).setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        positiveButtonClickListener.onClick(dialog, DialogInterface.BUTTON_POSITIVE);
-                    }
-                });
+                positiveButton.setText(positiveButtonText);
+                if (positiveButtonClickListener != null) {
+                    positiveButton.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            positiveButtonClickListener.onClick(dialog, DialogInterface.BUTTON_POSITIVE);
+                        }
+                    });
+                }
             }
             else  {
                 // if no confirm button just set the visibility to GONE
-                layout.findViewById(R.id.positiveButton).setVisibility(
+                positiveButton.setVisibility(
                         View.GONE);
             }
 
             //set the negativeButton
             if (negativeButtonText != null) {
-                ((Button) layout.findViewById(R.id.negativeButton))
+                negativeButton
                         .setText(negativeButtonText);
                 if (negativeButtonClickListener != null) {
-                    ((Button) layout.findViewById(R.id.negativeButton))
+                    negativeButton
                             .setOnClickListener(new View.OnClickListener() {
                                 public void onClick(View v) {
                                     negativeButtonClickListener.onClick(dialog,
@@ -134,7 +140,7 @@ public class CustomDialog extends Dialog {
             }
             else {
                 // if no confirm button just set the visibility to GONE
-                layout.findViewById(R.id.negativeButton).setVisibility(
+                negativeButton.setVisibility(
                         View.GONE);
             }
 

@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements ListViewAdapter.C
 //                .show();
         new CustomDialog
                 .Builder(this)
-                .setMessage("这就是自定义的对话框")
+                .setMessage("自定义的对话框自定义的对话框自定义的对话框自定义的对话框自定义的对话框自定义的对话框自")
                 .setTitle("提示")
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

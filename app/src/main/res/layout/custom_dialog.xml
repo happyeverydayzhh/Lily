@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp">
+    android:background="@drawable/all_corner_layout"
+    >
 
     <TextView
         android:id="@+id/title"
-        android:background="@color/dialogTitle"
+        android:background="@drawable/up_corner_layout"
         android:textColor="@color/white"
         android:textSize="18dp"
         android:gravity="center"
@@ -19,34 +21,37 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:gravity="center" >
+        android:gravity="center"
+        android:minHeight="100dp"
+        >
 
         <TextView
             android:id="@+id/message"
-            android:background="@color/c858585"
             android:textSize="16dp"
             android:textColor="@color/colorAccent"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"/>
 
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.5px"/>
+        android:layout_height="0.5px"
+        android:background="@color/Ccecece"/>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/ce7e7e7"
-        android:layout_gravity="bottom">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="8dp">
 
         <Button
             android:id="@+id/positiveButton"
             android:layout_width="114dip"
             android:layout_height="40dip"
-            android:background="@color/Cfd8a39"
+            android:background="@drawable/button_fill_orange"
             android:textColor="@color/white"
             android:textSize="15dp"
             android:shadowColor="@color/C79351b"
@@ -62,8 +67,8 @@
             android:id="@+id/negativeButton"
             android:layout_width="114dip"
             android:layout_height="40dip"
-            android:layout_marginLeft="20dip"
-            android:background="@color/Ccecece"
+            android:layout_marginLeft="15dip"
+            android:background="@drawable/button_fill_gray"
             android:textColor="@color/C666666"
             android:textSize="15dp"
             android:shadowColor="@color/C79351b"
