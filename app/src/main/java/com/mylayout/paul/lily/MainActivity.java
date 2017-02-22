@@ -1,16 +1,10 @@
 package com.mylayout.paul.lily;
 
-import android.app.AlertDialog;
-import android.app.VoiceInteractor;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -18,13 +12,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
-public class MainActivity extends AppCompatActivity implements ListViewAdapter.ClickCallBack{
+public class MainActivity extends BaseActivity implements ListViewAdapter.ClickCallBack{
 
     private static final String TAG = "Lily";
-    private ListView lv;
-    private Button buttonDetail;
+//    private ListView lv;
+//    private Button buttonDetail;
 
     private ListViewAdapter listViewAdapter;
     private List<Map<String, Object>> listItems;
@@ -113,12 +106,15 @@ public class MainActivity extends AppCompatActivity implements ListViewAdapter.C
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Log.e(TAG, "onCreate ~~~");
+        super.setNavEvents();
+        navTitle.setText("我");
+        navBack.setVisibility(View.GONE);
+
         listItems = getListItems();
-        lv = (ListView) findViewById(R.id.list);
+//        listView = (ListView) findViewById(R.id.list);
         listViewAdapter = new ListViewAdapter(this, listItems, this);
-        lv.setAdapter(listViewAdapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setAdapter(listViewAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                Log.e("~~~", "setOnItemClickListener click");
@@ -128,17 +124,6 @@ public class MainActivity extends AppCompatActivity implements ListViewAdapter.C
                 startActivity(intent);
             }
         });
-
-//        buttonDetail = (Button)findViewById(R.id.button);
-//        buttonDetail.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Log.e("~~~", "detailButton click");
-//                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-//                intent.putExtra("mainKey", "我是MainActivity传过来的值!");
-//                startActivity(intent);
-//            }
-//        });
     }
 
     private List<Map<String, Object>>getListItems() {
@@ -155,6 +140,11 @@ public class MainActivity extends AppCompatActivity implements ListViewAdapter.C
     }
 
     @Override
+    public void navBackAction() {
+        showDetailAlert("点击返回按钮");
+    }
+
+    @Override
     public void click(String string) {
         showDetailAlert(string);
     }
@@ -163,14 +153,9 @@ public class MainActivity extends AppCompatActivity implements ListViewAdapter.C
      * 点击详情弹出对话框
      */
     private void showDetailAlert(String string) {
-//        new AlertDialog.Builder(this)
-//                .setTitle("物品详情")
-//                .setMessage("hello world! ++++++++++" + string)
-//                .setPositiveButton("确定", null)
-//                .show();
         new CustomDialog
                 .Builder(this)
-                .setMessage("自定义的对话框自定义的对话框自定义的对话框自定义的对话框自定义的对话框自定义的对话框自")
+                .setMessage(string)
                 .setTitle("提示")
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

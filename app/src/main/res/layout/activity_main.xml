@@ -7,17 +7,12 @@
     android:orientation="vertical"
     tools:context="com.mylayout.paul.lily.MainActivity">
 
-    <!--<Button-->
-        <!--android:id="@+id/button"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Hello World!"-->
-        <!--android:background="@android:color/darker_gray"-->
-        <!--android:textColor="#ffedeeee"/>-->
+    <include layout="@layout/base_title_bar"/>
+    <include layout="@layout/base_list"/>
 
-    <ListView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffedeeee" />
+    <!--<ListView-->
+        <!--android:id="@+id/list"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="#ffedeeee" />-->
 </LinearLayout>
