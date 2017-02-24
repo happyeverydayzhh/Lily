@@ -6,14 +6,10 @@
 
     <include layout="@layout/base_title_bar"/>
     <FrameLayout
+        android:id="@+id/fgContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="你好，我是tabbar!"
-            android:background="@color/Ccecece"/>
     </FrameLayout>
     <View style="@style/divider_horizontal_1px_gray" />
 
@@ -32,17 +28,16 @@
             android:gravity="center">
             <ImageView
                 android:id="@+id/main_tab_home_img"
-                style="@drawable/home_tab_selector"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/tabbar_tasks_selected"
+                android:src="@drawable/home_tab_selector"
                 />
             <TextView
                 android:id="@+id/main_tab_home_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/task"
-                android:textColor="@color/C0091cd"/>
+                android:textColor="@drawable/tab_tv_selector"/>
         </LinearLayout>
 
         <LinearLayout
@@ -54,16 +49,16 @@
             android:gravity="center">
             <ImageView
                 android:id="@+id/main_tab_work_img"
-                style="@drawable/work_tab_selector"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/tabbar_workbench_normal"
+                android:src="@drawable/work_tab_selector"
                 />
             <TextView
                 android:id="@+id/main_tab_work_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/work"/>
+                android:text="@string/work"
+                android:textColor="@drawable/tab_tv_selector"/>
         </LinearLayout>
 
         <LinearLayout
@@ -75,16 +70,16 @@
             android:gravity="center">
             <ImageView
                 android:id="@+id/main_tab_find_img"
-                style="@drawable/find_tab_selector"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/tabbar_faxian_off"
+                android:src="@drawable/find_tab_selector"
                 />
             <TextView
                 android:id="@+id/main_tab_find_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/find"/>
+                android:text="@string/find"
+                android:textColor="@drawable/tab_tv_selector"/>
         </LinearLayout>
 
         <LinearLayout
@@ -96,16 +91,16 @@
             android:gravity="center">
             <ImageView
                 android:id="@+id/main_tab_msg_img"
-                style="@drawable/message_tab_selector"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/tabbar_messages_normal"
+                android:src="@drawable/message_tab_selector"
                 />
             <TextView
                 android:id="@+id/main_tab_msg_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/message"/>
+                android:text="@string/message"
+                android:textColor="@drawable/tab_tv_selector"/>
         </LinearLayout>
 
     </LinearLayout>

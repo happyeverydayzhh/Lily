@@ -2,10 +2,13 @@ package com.mylayout.paul.lily;
 
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.util.Printer;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -13,6 +16,7 @@ import android.widget.Toast;
  */
 
 public class MaintTabBarActivity extends BaseActivity {
+    private TaskListFG taskListFG;
     private int currentSelected;
     private int[] tabBarNormalIcons = {
             R.mipmap.tabbar_tasks_normal,
@@ -37,26 +41,39 @@ public class MaintTabBarActivity extends BaseActivity {
         setContentView(R.layout.main_tab_bar);
         super.setNavEvents();
         navBack.setVisibility(View.GONE);
-        setSelectedTabbar();
-        Log.e("hello ------------> ", "create .....................");
-        Log.e("hello", "onCreate ~~~");
+        setSelectedTabbar(0);
+        setListener();
     }
 
-    private void setSelectedTabbar() {
+    private void setListener() {
         final int[] tabs = {R.id.main_tab_home, R.id.main_tab_work, R.id.main_tab_find, R.id.main_tab_msg};
         for(int i = 0; i < tabs.length; i ++) {
             final int which = i;
-            Log.e("hello ------------> ", String.valueOf(i));
             Toast.makeText(MaintTabBarActivity.this, "hello_____" + i, Toast.LENGTH_SHORT).show();
             findViewById(tabs[i]).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     currentSelected = which;
-                    for(int j = 0; j < tabs.length; j ++) {
-                        ((ImageView)findViewById(tabbarIds[0][which])).setSelected(which == j);
-                    }
+                    setSelectedTabbar(which);
                 }
             });
+        }
+    }
+
+    private void setSelectedTabbar(int position) {
+        for(int j = 0; j < tabbarIds[0].length; j ++) {
+            ImageView ivTabs = (ImageView)findViewById(tabbarIds[0][j]);
+            ivTabs.setSelected(position == j);
+            TextView tvTabs = (TextView)findViewById(tabbarIds[1][j]);
+            tvTabs.setSelected(position == j);
+            if (position == j) {
+                FragmentManager fgMgr = getSupportFragmentManager();
+                taskListFG = (TaskListFG)fgMgr.findFragmentById(R.id.fgContainer);
+                if (taskListFG == null) {
+                    taskListFG = new TaskListFG();
+                    fgMgr.beginTransaction().add(R.id.fgContainer, taskListFG).commit();
+                }
+            }
         }
     }
 }
