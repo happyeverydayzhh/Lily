@@ -122,6 +122,7 @@ public class MainActivity extends BaseActivity implements ListViewAdapter.ClickC
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 intent.putExtra("mainKey", map.get("info").toString());
                 startActivity(intent);
+//                overridePendingTransition(R.anim.in_from_right, R.anim.out_to_right);
             }
         });
     }

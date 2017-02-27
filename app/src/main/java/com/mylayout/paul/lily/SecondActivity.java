@@ -148,6 +148,7 @@ public class SecondActivity extends BaseActivity implements ListViewAdapter.Clic
     @Override
     public void navBackAction() {
         SecondActivity.this.finish();
+        overridePendingTransition(R.anim.in_from_left,R.anim.out_to_right);
     }
 
 
