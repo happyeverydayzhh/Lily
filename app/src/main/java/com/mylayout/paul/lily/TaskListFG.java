@@ -149,7 +149,7 @@ public class TaskListFG extends Fragment implements ListViewAdapter.ClickCallBac
                 Intent intent = new Intent(getActivity(), SecondActivity.class);
                 intent.putExtra("mainKey", map.get("info").toString());
                 startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
+                getActivity().overridePendingTransition(R.anim.in_from_right, R.anim.hold);
             }
         });
         return v;

@@ -108,11 +108,10 @@ public class SecondActivity extends BaseActivity implements ListViewAdapter.Clic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_second);
         super.setNavEvents();
-//        tvDetail = (TextView)findViewById(R.id.tvDetail);
-//        setDetail();
+//        final Intent intent = getIntent();
+//        navTitle.setText(intent.getStringExtra("mainKey"));
         listItems = getListItems();
         Log.e("size = %ld", listItems.size() + "");
-//        listView = (ListView) findViewById(R.id.list);
         listViewAdapter = new ListViewAdapter(this, listItems, this);
         listView.setAdapter(listViewAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -148,9 +147,8 @@ public class SecondActivity extends BaseActivity implements ListViewAdapter.Clic
     @Override
     public void navBackAction() {
         SecondActivity.this.finish();
-        overridePendingTransition(R.anim.in_from_left,R.anim.out_to_right);
+        overridePendingTransition(R.anim.fade_in,R.anim.out_to_right);
     }
-
 
     @Override
     public void click(String string) {
