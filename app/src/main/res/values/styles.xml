@@ -1,6 +1,8 @@
 <resources>
 
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 设置背景透明背景，右滑时才能看到上一个界面，否则会看到黑屏效果-->，
+        <item name="android:windowIsTranslucent">true</item>
         <!--状态栏颜色-->
         <item name="android:colorPrimaryDark">@color/C0091cd</item>
         <!--窗口的背景颜色-->

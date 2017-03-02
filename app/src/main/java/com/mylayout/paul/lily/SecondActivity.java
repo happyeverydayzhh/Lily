@@ -118,10 +118,11 @@ public class SecondActivity extends BaseActivity implements ListViewAdapter.Clic
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Log.e("~~~", "setOnItemClickListener click");
-//                Map<String, Object> map = listItems.get(i);
-//                Intent intent = new Intent(SecondActivity.this, SecondActivity.class);
-//                intent.putExtra("mainKey", map.get("info").toString());
-//                startActivity(intent);
+                Map<String, Object> map = listItems.get(i);
+                Intent intent = new Intent(SecondActivity.this, SecondActivity.class);
+                intent.putExtra("mainKey", map.get("info").toString());
+                startActivity(intent);
+                overridePendingTransition(R.anim.in_from_right, R.anim.hold);
             }
         });
     }

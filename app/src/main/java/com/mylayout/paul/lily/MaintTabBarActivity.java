@@ -35,6 +35,7 @@ public class MaintTabBarActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_tab_bar);
         super.setNavEvents();
+        setSwipeBackEnable(false);
         fragments = new Fragment[4];
         fgMgr = getSupportFragmentManager();
         navBack.setVisibility(View.GONE);

@@ -1,25 +1,29 @@
 package com.mylayout.paul.lily;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import me.imid.swipebacklayout.lib.SwipeBackLayout;
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
+
 /**
  * Created by paul on 2017/2/16.
  */
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends SwipeBackActivity {
     public TextView navTitle;
     public ImageView navBack;
     public ListView listView;
+    private SwipeBackLayout mSwipeBackLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base);
+        mSwipeBackLayout = getSwipeBackLayout();
+        mSwipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
     }
 
     public void navBackAction() {
@@ -38,5 +42,8 @@ public class BaseActivity extends AppCompatActivity {
 
         navTitle = (TextView)titleBar.findViewById(R.id.nav_title);
         listView = (ListView)findViewById(R.id.listBase);
+
+//        mSwipeBackLayout = getSwipeBackLayout();
+//        mSwipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
     }
 }
