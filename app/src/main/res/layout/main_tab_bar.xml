@@ -116,15 +116,24 @@
 
    <LinearLayout
        android:id="@+id/left_drawer"
+       android:orientation="vertical"
        android:layout_gravity="left"
-       android:background="@color/C0091cd"
+       android:background="@color/gray_2"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:fitsSystemWindows="true"
-       android:clipToPadding="true"
        >
+
+       <ImageView
+           android:fitsSystemWindows="true"
+           android:clipToPadding="true"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@mipmap/leftslider_head_background"/>
+
        <ListView
            android:id="@+id/drawer_lv"
+           android:background="@color/white"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:choiceMode="singleChoice"
