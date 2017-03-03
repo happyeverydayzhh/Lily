@@ -1,14 +1,23 @@
 package com.mylayout.paul.lily;
 
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.mylayout.paul.lily.utils.StateBarTranslucentUtils;
 
 /**
  * Created by paul on 2017/2/21.
@@ -41,6 +50,18 @@ public class MaintTabBarActivity extends BaseActivity {
         navBack.setVisibility(View.GONE);
         setSelectedTabbar(0);
         setListener();
+        StateBarTranslucentUtils.setStateBarTranslucent(this);
+        DrawerLayout drawer = (DrawerLayout)findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, null, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            //将擦边栏延伸至status bar
+            drawer.setFitsSystemWindows(true);
+            //将主页顶部延伸至status bar, 虽然为false，但经测试，DrawerLayout需显示设置
+            drawer.setClipToPadding(false);
+        }
     }
 
     private void setListener() {
