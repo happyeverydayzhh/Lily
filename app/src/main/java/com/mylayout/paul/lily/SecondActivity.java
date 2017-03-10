@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
 
+import com.mylayout.paul.lily.Adapter.ListViewAdapter;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ListView;
+
+import com.mylayout.paul.lily.Adapter.ListViewAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;

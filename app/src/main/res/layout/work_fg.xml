@@ -3,10 +3,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hello work! ---------->"
-        android:textColor="@color/C0091cd"/>
+    <include layout="@layout/base_list"/>
 
 </LinearLayout>

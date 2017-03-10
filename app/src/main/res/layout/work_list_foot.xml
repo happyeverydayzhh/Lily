@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <Button
+       android:id="@+id/add_button"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@drawable/blue_button_corner"
+       android:layout_marginLeft="15dp"
+       android:layout_marginRight="15dp"
+       android:layout_marginTop="18dp"
+       android:layout_marginBottom="18dp"
+       android:textSize="15sp"
+       android:text="新增"
+       android:textColor="@color/white"
+       />
+
+    <include layout="@layout/product_arrow_item"/>
+
+    <include layout="@layout/product_arrow_item"/>
+
+    <include layout="@layout/product_arrow_item"/>
+
+</LinearLayout>
