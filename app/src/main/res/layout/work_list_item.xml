@@ -8,13 +8,15 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clickable="true">
         <TextView
             android:id="@+id/work_list_item_title"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_marginTop="13dp"
             android:layout_marginBottom="13dp"
+            android:layout_marginLeft="15dp"
             android:textSize="15sp"
             android:textColor="#606060"
             android:layout_weight="1"
@@ -24,13 +26,15 @@
         <EditText
             android:id="@+id/work_list_item_edit"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:textColor="#bdbdbd"
             android:textSize="15sp"
             android:layout_marginTop="13dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginBottom="13dp"
+            android:layout_marginRight="15dp"
             android:background="@null"
-            android:layout_weight="5"
+            android:layout_weight="3"
             />
     </LinearLayout>
 

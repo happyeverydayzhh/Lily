@@ -18,10 +18,21 @@
        android:textColor="@color/white"
        />
 
-    <include layout="@layout/product_arrow_item"/>
+    <include android:id="@+id/work_foot_remark"
+        layout="@layout/product_arrow_item"/>
 
-    <include layout="@layout/product_arrow_item"/>
+    <include android:id="@+id/work_foot_desc"
+        layout="@layout/product_arrow_item"/>
 
-    <include layout="@layout/product_arrow_item"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
+
+    <include android:id="@+id/work_foot_attachment"
+        layout="@layout/product_arrow_item"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
 
 </LinearLayout>

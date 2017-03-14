@@ -58,13 +58,12 @@ public class WorkFG extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View header = (View)LayoutInflater.from(getActivity()).inflate(R.layout.work_list_head, null);
         View footer = (View)LayoutInflater.from(getActivity()).inflate(R.layout.work_list_foot, null);
-//        View header = inflater.inflate(R.layout.work_list_head, null);
-//        View footer = inflater.inflate(R.layout.work_list_foot, null);
         View v = inflater.inflate(R.layout.work_fg, null);
         listView = (ListView)v.findViewById(R.id.listBase);
         listView.addHeaderView(header);
         listView.addFooterView(footer);
 
+        //先添加foot head才能设置适配器
         listViewAdapter = new WorkListAdapter(getActivity(), listItems);
         listView.setAdapter(listViewAdapter);
         return v;
